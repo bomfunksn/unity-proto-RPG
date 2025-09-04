@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
 
     [Header("Movement details")]
     public float moveSpeed;
+
+    private bool facingRight = true;
 
     private void Awake()
     {
@@ -56,5 +59,20 @@ public class Player : MonoBehaviour
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
+        HandleFlip(xVelocity);
+    }
+
+    private void HandleFlip(float xVelocity)
+    {
+        if (xVelocity > 0 && facingRight == false)
+            Flip();
+        else if (xVelocity < 0 && facingRight)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        transform.Rotate(0, 180, 0); //почему тут "Rotate" а не tarnsform.rotation, как называется в юнити? как это получилось?
+        facingRight = !facingRight;
     }
 }
