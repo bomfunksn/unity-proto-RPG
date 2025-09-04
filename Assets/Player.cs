@@ -15,14 +15,24 @@ public class Player : MonoBehaviour
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
-    
+
 
 
     [Header("Movement details")]
     public float moveSpeed;
     public float jumpForce = 5;
+
+    [Range (0,1)]
+    public float inAirMoveMultiplier = .7f;
     private bool facingRight = true;
     public Vector2 moveInput { get; private set; }
+
+    [Header("Collision detection")]
+    [SerializeField] private float groundCheckDistance;
+    [SerializeField] private LayerMask whatIsGround;
+
+    public bool groundDetected{ get; private set; }
+
 
     private void Awake()
     {
@@ -58,6 +68,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        HandleCollisionDetection();
         stateMachine.UpdateActiveState();
     }
 
@@ -79,5 +90,16 @@ public class Player : MonoBehaviour
     {
         transform.Rotate(0, 180, 0); //почему тут "Rotate" а не tarnsform.rotation, как называется в юнити? как это получилось?
         facingRight = !facingRight;
+    }
+
+    private void HandleCollisionDetection()
+    {
+        groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
+
     }
 }
