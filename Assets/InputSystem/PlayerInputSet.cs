@@ -120,7 +120,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Atack"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""a4f1ba1e-2d1a-4f17-9261-329f4ffbe03c"",
                     ""expectedControlType"": """",
@@ -214,7 +214,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Atack"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -245,7 +245,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_Atack = m_Player.FindAction("Atack", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -329,7 +329,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_Atack;
+    private readonly InputAction m_Player_Attack;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -354,9 +354,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Atack".
+        /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
-        public InputAction @Atack => m_Wrapper.m_Player_Atack;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -392,9 +392,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @Atack.started += instance.OnAtack;
-            @Atack.performed += instance.OnAtack;
-            @Atack.canceled += instance.OnAtack;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         /// <summary>
@@ -415,9 +415,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @Atack.started -= instance.OnAtack;
-            @Atack.performed -= instance.OnAtack;
-            @Atack.canceled -= instance.OnAtack;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         /// <summary>
@@ -493,11 +493,11 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDash(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Atack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAtack(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
