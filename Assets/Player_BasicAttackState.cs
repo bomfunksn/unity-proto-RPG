@@ -3,12 +3,13 @@ using UnityEngine;
 public class Player_BasicAttackState : EntityState
 {
     private float attackVelocityTimer;
+    private float lastTimeAttacked;
 
     private const int FirstComboIndex = 1; // Combo index from Animatior;
+    private int atackDir;
     private int comboIndex = 1;
     private int comboLimit = 3;
-
-    private float lastTimeAttacked;
+    private bool comboAttackQueued;
 
     public Player_BasicAttackState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -21,8 +22,11 @@ public class Player_BasicAttackState : EntityState
     public override void Enter()
     {
         base.Enter();
-
+        comboAttackQueued = false;
         ResetComboIndexIfNeeded();
+        
+        //attack direction depends on input
+        atackDir = player.moveInput.x != 0 ? ((int)player.moveInput.x) : player.facingDir;
 
         anim.SetInteger("basicAttackIndex", comboIndex);
         ApplyAttackVelocity();
@@ -35,8 +39,11 @@ public class Player_BasicAttackState : EntityState
         base.Update();
         HandleAttackVelocity();
 
+        if (input.Player.Attack.WasPressedThisFrame())
+            QueueNextAttack();
+
         if (triggerCalled)
-            stateMachine.ChangeState(player.idleState);
+            HandleStateExit();
     }
 
     public override void Exit()
@@ -45,6 +52,23 @@ public class Player_BasicAttackState : EntityState
 
         comboIndex++;
         lastTimeAttacked = Time.time;
+    }
+
+    private void HandleStateExit()
+    {
+            if (comboAttackQueued)
+            {
+                anim.SetBool(animBoolName, false);
+                player.EnterAttackWithDelay();
+            }
+            else
+                stateMachine.ChangeState(player.idleState);
+    }
+
+    private void QueueNextAttack()
+    {
+        if (comboIndex < comboLimit)
+            comboAttackQueued = true;
     }
     private void HandleAttackVelocity()
     {
@@ -58,10 +82,10 @@ public class Player_BasicAttackState : EntityState
     {
         Vector2 attackVelocity = player.attackVelocity[comboIndex - FirstComboIndex];
         attackVelocityTimer = player.attackVelocityDuration;
-        player.SetVelocity(attackVelocity.x * player.facingDir, attackVelocity.y);
+        player.SetVelocity(attackVelocity.x * atackDir, attackVelocity.y);
     }
 
-        private void ResetComboIndexIfNeeded()
+    private void ResetComboIndexIfNeeded()
     {
 
         if (Time.time > lastTimeAttacked + player.comboResetTime)
