@@ -418,11 +418,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76560669464813342b5a7b92f649dbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atackVelocity: {x: 3, y: 1.5}
+  atackVelocityDuration: 0.15
   moveSpeed: 6
   jumpForce: 12
   wallJumpDir: {x: 3, y: 12}
   inAirMoveMultiplier: 0.7
   wallSlideSlowMultiplier: 0.7
+  dashDuration: 0.25
+  dashSpeed: 20
   groundCheckDistance: 1.35
   wallCheckDistance: 0.5
   whatIsGround:
@@ -740,6 +744,7 @@ GameObject:
   - component: {fileID: 797908865}
   - component: {fileID: 797908866}
   - component: {fileID: 797908867}
+  - component: {fileID: 797908868}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -839,6 +844,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &797908868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797908864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf62eef9a8f30c3419fe0977c8140413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215586848
 GameObject:
   m_ObjectHideFlags: 0

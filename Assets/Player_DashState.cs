@@ -25,7 +25,7 @@ public class Player_DashState : EntityState
         base.Update();
         CancelDashIfNedded();
 
-        player.SetVelocity(player.dashSpeed * player.facingDir * dashDir, 0);
+        player.SetVelocity(player.dashSpeed * dashDir, 0);
 
         if (stateTimer < 0)
         {
