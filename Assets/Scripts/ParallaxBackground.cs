@@ -1,0 +1,25 @@
+using UnityEngine;
+
+public class ParallaxBackground : MonoBehaviour
+{
+    private Camera mainCamera;
+    private float lastCameraPositionX;
+    [SerializeField] private ParallaxLayer[] backgroundLayers;
+
+    private void Awake()
+    {
+        mainCamera = Camera.main; //Что такое .main??? это типа название главной камеры движка, которой мы управляем синемашином?
+    }
+
+    private void Update()
+    {
+        float currentCameraPositionX = mainCamera.transform.position.x;
+        float distanceToMove = currentCameraPositionX - lastCameraPositionX;
+        lastCameraPositionX = currentCameraPositionX;
+
+        foreach (ParallaxLayer layer in backgroundLayers)
+        {
+            layer.Move(distanceToMove);
+        }
+    }
+}
