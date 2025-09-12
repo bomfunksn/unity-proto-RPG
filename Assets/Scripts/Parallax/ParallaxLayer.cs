@@ -4,6 +4,7 @@ public class ParallaxLayer
 {
     [SerializeField] private Transform background;
     [SerializeField] private float ParallaxMultiplier;
+    [SerializeField] private float imageWidthOffset = 10;
 
     private float imageFullWidth;
     private float imageHalfWidth;
@@ -21,8 +22,8 @@ public class ParallaxLayer
 
     public void LoopBackround(float cameraLeftEdge, float cameraRightEdge) //зачем указывать значения в скобках?
     {
-        float imageRightEdge = background.position.x + imageHalfWidth;
-        float imageLeftEdge = background.position.x - imageHalfWidth;
+        float imageRightEdge = (background.position.x + imageHalfWidth) - imageWidthOffset;
+        float imageLeftEdge = (background.position.x - imageHalfWidth) + imageWidthOffset;
 
         if (imageRightEdge < cameraLeftEdge)
             background.position += Vector3.right * imageFullWidth;

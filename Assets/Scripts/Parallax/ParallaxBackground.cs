@@ -12,10 +12,10 @@ public class ParallaxBackground : MonoBehaviour
     {
         mainCamera = Camera.main; //Что такое .main??? это типа название главной камеры движка, которой мы управляем синемашином?
         cameraHalfWidth = mainCamera.orthographicSize * mainCamera.aspect; //Как из этого получилась половина ширины? Что такое "рахмер камеры" в ортографик сайзе?
-        CalculateImageLenghth();
+        InitializeLayers();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float currentCameraPositionX = mainCamera.transform.position.x;
         float distanceToMove = currentCameraPositionX - lastCameraPositionX;
@@ -30,7 +30,7 @@ public class ParallaxBackground : MonoBehaviour
             layer.LoopBackround(cameraLeftEdge, cameraRightEdge);//зачем тут писать в скобках при вызове метода?
         }
     }
-    private void CalculateImageLenghth()
+    private void InitializeLayers()
     {
         foreach (ParallaxLayer layer in backgroundLayers)
             layer.CalculateImageWidth();

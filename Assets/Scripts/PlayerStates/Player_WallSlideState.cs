@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Player_WallSlideState : EntityState
@@ -21,6 +22,8 @@ public class Player_WallSlideState : EntityState
         if (player.groundDetected)
             {
                 stateMachine.ChangeState(player.idleState);
+
+                if(player.facingDir != player.moveInput.x)
                 player.Flip();
             }
     }
