@@ -19,7 +19,7 @@ public class Enemy_BattleState : EnemyState
 
         if (ShouldRetreat())
         {
-            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DistanceToPlayer(), enemy.retreatVelocity.y); //сюда бы пихнуть минимальное значение в |1|
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
             enemy.HandleFlip(DirectionToPlayer());
         }
     }
