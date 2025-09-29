@@ -47,7 +47,7 @@ public class Entity_Health : MonoBehaviour
     {
         currentHp -= damage;
 
-        if (currentHp < 0)
+        if (currentHp <= 0)
             Die();
 
     }
@@ -55,7 +55,7 @@ public class Entity_Health : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        Debug.Log("Entity died");
+        entity.EntityDeath();
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)

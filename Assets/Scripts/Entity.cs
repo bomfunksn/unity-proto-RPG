@@ -44,6 +44,11 @@ public class Entity : MonoBehaviour
         stateMachine.UpdateActiveState();
     }
 
+    public virtual void EntityDeath()
+    {
+        
+    }
+
     public void CurrentStateAnimationTrigger()
     {
         stateMachine.currentState.AnimationTrigger();
