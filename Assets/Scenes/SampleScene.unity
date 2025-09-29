@@ -20994,8 +20994,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0293f563d08a942aaaa879b18a6e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHp: 0
   maxHp: 100
   isDead: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  heavyKnockbackPower: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyDamageThrashold: 0.3
 --- !u!114 &406421752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21699,8 +21705,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3594994ff95e00648856d562e4788682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHp: 0
   maxHp: 100
   isDead: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  heavyKnockbackPower: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyDamageThrashold: 0.3
 --- !u!114 &720940987
 MonoBehaviour:
   m_ObjectHideFlags: 0
