@@ -5,6 +5,7 @@ public class Enemy_BattleState : EnemyState
 {
 
     private Transform player;
+    private float lastTimeWasInBattle;
     public Enemy_BattleState(Enemy enemy, StateMachine stateMachine, string animBoolName) : base(enemy, stateMachine, animBoolName)
     {
     }
@@ -14,21 +15,38 @@ public class Enemy_BattleState : EnemyState
         base.Enter();
 
         if (player == null)
-            player = enemy.PlayerDetection().transform;
+            player = enemy.PlayerDetected().transform;
+
+        if (ShouldRetreat())
+        {
+            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DistanceToPlayer(), enemy.retreatVelocity.y); //сюда бы пихнуть минимальное значение в |1|
+            enemy.HandleFlip(DirectionToPlayer());
+        }
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (WithinAttackRange())
-            stateMachine.ChangeState(enemy.attackState);
+        if (enemy.PlayerDetected() == true)
+            UpdateBattleTimer();
 
-        else
-            enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
+        if (BattleTimeIsOver())
+            stateMachine.ChangeState(enemy.idleState);
+
+        if (WithinAttackRange() && enemy.PlayerDetected())
+                stateMachine.ChangeState(enemy.attackState);
+
+            else
+                enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
     }
 
+    private void UpdateBattleTimer() => lastTimeWasInBattle = Time.time;
+
+    private bool BattleTimeIsOver() => Time.time > lastTimeWasInBattle + enemy.battleTimeDuration;
+
     private bool WithinAttackRange() => DistanceToPlayer() < enemy.attackDistance;
+    private bool ShouldRetreat() => DistanceToPlayer() < enemy.minRetreatDistance;
 
     private float DistanceToPlayer()
     {
