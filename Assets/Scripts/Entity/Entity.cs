@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public Animator anim { get; private set; }
+
+    public event Action OnFlipped;
+
+    public Animator anim
+    { get; private set; }
     public Rigidbody2D rb { get; private set; }
     protected StateMachine stateMachine;
 
@@ -95,6 +100,8 @@ public class Entity : MonoBehaviour
         transform.Rotate(0, 180, 0); //почему тут "Rotate" а не tarnsform.rotation, как называется в юнити? как это получилось?
         facingRight = !facingRight;
         facingDir = facingDir * -1;
+
+        OnFlipped?.Invoke();
     }
 
     private void HandleCollisionDetection()
