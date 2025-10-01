@@ -33,7 +33,7 @@ public class Entity_Health : MonoBehaviour, IDamageble
         UpdateHealthBar();
     }
 
-    public virtual bool TakeDamage(float damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage, float elementalDamage, Transform damageDealer)
     {
         if (isDead)
             return false;
@@ -57,7 +57,7 @@ public class Entity_Health : MonoBehaviour, IDamageble
         entity?.RecieveKnockback(knockback, duration);
         entityVfx?.PlayOnDamageVfx(); // ? тут = if (entityVfx != null)
         ReduceHp(finalDamage);
-        Debug.Log("damage taken:" + finalDamage);
+        Debug.Log("elemental damage taken:" + elementalDamage);
 
         return true;
     }

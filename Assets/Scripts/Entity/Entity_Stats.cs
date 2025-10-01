@@ -7,6 +7,34 @@ public class Entity_Stats : MonoBehaviour
     public Stat_OffenceGroup offence;
     public Stat_DefenceGroup defence;
 
+    public float GetElementalDamage()
+    {
+        float fireDamage = offence.fireDamage.GetValue();
+        float iceDamage = offence.iceDamage.GetValue();
+        float lightningDamage = offence.lightningDamage.GetValue();
+        float bonusElementalDamage = major.intelligence.GetValue(); //+1 for int point
+
+        float highestDamage = fireDamage;
+
+        if (iceDamage > highestDamage)
+            highestDamage = iceDamage;
+
+        if (lightningDamage > highestDamage)
+            highestDamage = lightningDamage;
+
+        if (highestDamage <= 0)
+            return 0;
+
+        float bonusFire = (fireDamage == highestDamage) ? 0 : fireDamage * 0.5f;
+        float bonusIce = (iceDamage == highestDamage) ? 0 : iceDamage * 0.5f;
+        float bonusLightning = (lightningDamage == highestDamage) ? 0 : lightningDamage * 0.5f;
+
+        float weakerElementsDamage = bonusFire + bonusIce + bonusLightning;
+        float finalDamage = highestDamage + weakerElementsDamage + bonusElementalDamage;
+
+        return finalDamage;
+    }
+
     public float GetPhysicalDamage(out bool isCrit)
     {
         float baseDamage = offence.damage.GetValue();
