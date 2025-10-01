@@ -25,7 +25,29 @@ public class Entity_Stats : MonoBehaviour
         float finalDamage = isCrit ? totalBaseDamage * critPower : totalBaseDamage;
 
         return finalDamage;
-}
+    }
+
+    public float GetArmorMitigation(float armorReduction)
+    {
+        float baseArmor = defence.armor.GetValue();
+        float bonusArmor = major.vitality.GetValue(); //+1 per point
+        float totalArmor = baseArmor + bonusArmor;
+
+        float reductionMultiplier = Mathf.Clamp (1 - armorReduction,0,1);
+        float effectiveArmor = totalArmor * reductionMultiplier;
+
+        float mitigation = effectiveArmor / (effectiveArmor + 100);
+        float mitigationCap = .85f; //85%
+
+        float finalMititgation = Mathf.Clamp(mitigation, 0, mitigationCap);
+        return finalMititgation;
+    }
+
+    public float GetArmorReduction()
+    {
+        float finalReduction = offence.armorReduction.GetValue() / 100;
+        return finalReduction;
+    }
 
     public float GetMaxHealth()
     {
