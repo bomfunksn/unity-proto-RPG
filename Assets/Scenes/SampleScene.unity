@@ -21391,6 +21391,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 0.764151, g: 0.74736845, b: 0, a: 1}
   hitVfx: {fileID: 3841835908062242602, guid: 02518047b8fb9a04186660dd28786e9e, type: 3}
+  critHitVfx: {fileID: 75587204512142636, guid: b78ebbd400e2cf14293c75fe0bc22b56, type: 3}
 --- !u!114 &406421753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21403,7 +21404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f7746eb4543d94a96f577de0bdd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   targetCheck: {fileID: 11601890}
   targerCheckRadius: 1
   whatIsTarget:
@@ -21423,7 +21423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp:
-    baseValue: 100
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -21437,9 +21437,9 @@ MonoBehaviour:
     damage:
       baseValue: 10
     critChance:
-      baseValue: 0
+      baseValue: 100
     critPower:
-      baseValue: 0
+      baseValue: 250
     fireDamage:
       baseValue: 0
     iceDamage:
@@ -22326,7 +22326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b4b5685f6b50549b318b151cd05687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
   targetCheck: {fileID: 1744091360}
   targerCheckRadius: 1
   whatIsTarget:
@@ -22367,6 +22366,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   hitVfx: {fileID: 3841835908062242602, guid: 02518047b8fb9a04186660dd28786e9e, type: 3}
+  critHitVfx: {fileID: 75587204512142636, guid: b78ebbd400e2cf14293c75fe0bc22b56, type: 3}
   attackAlert: {fileID: 1525814732}
 --- !u!114 &720940988
 MonoBehaviour:
@@ -22381,7 +22381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp:
-    baseValue: 100
+    baseValue: 10000
   major:
     strength:
       baseValue: 0
@@ -22901,6 +22901,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 3841835908062242602, guid: 02518047b8fb9a04186660dd28786e9e, type: 3}
+  critHitVfx: {fileID: 0}
 --- !u!1 &1022388752
 GameObject:
   m_ObjectHideFlags: 0
