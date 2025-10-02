@@ -1,3 +1,5 @@
+
+using Unity.Android.Gradle;
 using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
@@ -7,7 +9,7 @@ public class Entity_Stats : MonoBehaviour
     public Stat_OffenceGroup offence;
     public Stat_DefenceGroup defence;
 
-    public float GetElementalDamage()
+    public float GetElementalDamage(out ElementType element)
     {
         float fireDamage = offence.fireDamage.GetValue();
         float iceDamage = offence.iceDamage.GetValue();
@@ -15,15 +17,23 @@ public class Entity_Stats : MonoBehaviour
         float bonusElementalDamage = major.intelligence.GetValue(); //+1 for int point
 
         float highestDamage = fireDamage;
+        element = ElementType.Fire;
 
         if (iceDamage > highestDamage)
+        {
             highestDamage = iceDamage;
-
+            element = ElementType.Ice;
+        }
         if (lightningDamage > highestDamage)
+        {
             highestDamage = lightningDamage;
-
+            element = ElementType.Lightning;
+        }
         if (highestDamage <= 0)
+        {
+            element = ElementType.none;
             return 0;
+        }
 
         float bonusFire = (fireDamage == highestDamage) ? 0 : fireDamage * 0.5f;
         float bonusIce = (iceDamage == highestDamage) ? 0 : iceDamage * 0.5f;
@@ -33,6 +43,30 @@ public class Entity_Stats : MonoBehaviour
         float finalDamage = highestDamage + weakerElementsDamage + bonusElementalDamage;
 
         return finalDamage;
+    }
+
+    public float GetElementalResistance(ElementType element)
+    {
+        float baseResistance = 0;
+        float bonusResistance = major.intelligence.GetValue() * .5f; //0.5% per INT point
+
+        switch (element)
+        {
+            case ElementType.Fire:
+                baseResistance = defence.fireRes.GetValue();
+                break;
+            case ElementType.Ice:
+                baseResistance = defence.iceRes.GetValue();
+                break;
+            case ElementType.Lightning:
+                baseResistance = defence.lightningRes.GetValue();
+                break;
+        }
+        float resistance = baseResistance + bonusResistance;
+        float resistanceCap = 75f;
+        float finalResistance = Mathf.Clamp(resistance, 0, resistanceCap) /100;
+
+        return finalResistance;
     }
 
     public float GetPhysicalDamage(out bool isCrit)
@@ -61,7 +95,7 @@ public class Entity_Stats : MonoBehaviour
         float bonusArmor = major.vitality.GetValue(); //+1 per point
         float totalArmor = baseArmor + bonusArmor;
 
-        float reductionMultiplier = Mathf.Clamp (1 - armorReduction,0,1);
+        float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1);
         float effectiveArmor = totalArmor * reductionMultiplier;
 
         float mitigation = effectiveArmor / (effectiveArmor + 100);
