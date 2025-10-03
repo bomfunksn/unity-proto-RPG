@@ -15,6 +15,10 @@ public class Entity_Combat : MonoBehaviour
     [Header("status effect details")]
     [SerializeField] private float defaultDuration = 3;
     [SerializeField] private float chillSlowMultiplier = .2f;
+    [SerializeField] private float electrifyChargeBuildUp = .4f;
+    [Space]
+    [SerializeField] private float fireScale = .8f;
+    [SerializeField] private float lightningScale = 2.5f;
 
     private void Awake()
     {
@@ -57,13 +61,21 @@ public class Entity_Combat : MonoBehaviour
             return;
 
         if (element == ElementType.Ice && statusHandler.CanBeApplied(ElementType.Ice))
-            statusHandler.ApplyChilledEffect(defaultDuration, chillSlowMultiplier * scaleFactor);
+            statusHandler.ApplyChillEffect(defaultDuration, chillSlowMultiplier * scaleFactor);
 
         if (element == ElementType.Fire && statusHandler.CanBeApplied(ElementType.Fire))
         {
+            scaleFactor = fireScale;
             float fireDamage = stats.offence.fireDamage.GetValue() * scaleFactor;
             statusHandler.ApplyBurnEffect(defaultDuration, fireDamage);
         }
+        if (element == ElementType.Lightning && statusHandler.CanBeApplied(ElementType.Lightning))
+        {
+            scaleFactor = lightningScale;
+            float lightningDamage = stats.offence.lightningDamage.GetValue() * scaleFactor;
+            statusHandler.ApplyElecrifyEffect(defaultDuration, lightningDamage, electrifyChargeBuildUp);
+        }
+                
     }
 
     protected Collider2D[] GetDetectedColliders()
