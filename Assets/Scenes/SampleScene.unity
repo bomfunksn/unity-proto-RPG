@@ -21120,8 +21120,8 @@ GameObject:
   - component: {fileID: 406421753}
   - component: {fileID: 406421751}
   - component: {fileID: 406421752}
-  - component: {fileID: 406421754}
   - component: {fileID: 406421755}
+  - component: {fileID: 406421756}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -21311,7 +21311,22 @@ MonoBehaviour:
   fireScale: 0.8
   lightningScale: 2.5
   counterRecovery: 0.5
---- !u!114 &406421754
+--- !u!114 &406421755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406421745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6432c1ffae803e42b932a0bd145d5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningStrikeVfx: {fileID: 6786185877611101175, guid: d4c89a78a8a23d947b890dc6c787c75d, type: 3}
+  currentCharge: 0
+  maximumCharge: 0
+--- !u!114 &406421756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21323,25 +21338,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16ac63bc5195a34e9f8d421da733e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: 501a51d54f9addb4a9930f81233935e9, type: 2}
   resources:
     maxHealth:
-      baseValue: 1000
+      baseValue: 100
       modifiers: []
     healthRegen:
       baseValue: 0
-      modifiers: []
-  major:
-    strength:
-      baseValue: 0
-      modifiers: []
-    agility:
-      baseValue: 0
-      modifiers: []
-    intelligence:
-      baseValue: 0
-      modifiers: []
-    vitality:
-      baseValue: 10
       modifiers: []
   offence:
     attackSpeed:
@@ -21354,7 +21357,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifiers: []
     armorReduction:
       baseValue: 0
@@ -21384,21 +21387,19 @@ MonoBehaviour:
     lightningRes:
       baseValue: 0
       modifiers: []
---- !u!114 &406421755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406421745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6432c1ffae803e42b932a0bd145d5ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightningStrikeVfx: {fileID: 6786185877611101175, guid: d4c89a78a8a23d947b890dc6c787c75d, type: 3}
-  currentCharge: 0
-  maximumCharge: 0
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
+      modifiers: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -22333,24 +22334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16ac63bc5195a34e9f8d421da733e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultStatSetup: {fileID: 11400000, guid: 6d1273c6db9d8ac4e963173527fa00eb, type: 2}
   resources:
     maxHealth:
-      baseValue: 1000
+      baseValue: 100
       modifiers: []
     healthRegen:
-      baseValue: 0
-      modifiers: []
-  major:
-    strength:
-      baseValue: 0
-      modifiers: []
-    agility:
-      baseValue: 0
-      modifiers: []
-    intelligence:
-      baseValue: 0
-      modifiers: []
-    vitality:
       baseValue: 0
       modifiers: []
   offence:
@@ -22364,7 +22353,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifiers: []
     armorReduction:
       baseValue: 0
@@ -22392,7 +22381,20 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningRes:
-      baseValue: 60
+      baseValue: 0
+      modifiers: []
+  major:
+    strength:
+      baseValue: 0
+      modifiers: []
+    agility:
+      baseValue: 0
+      modifiers: []
+    intelligence:
+      baseValue: 0
+      modifiers: []
+    vitality:
+      baseValue: 0
       modifiers: []
 --- !u!114 &720940989
 MonoBehaviour:
