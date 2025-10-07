@@ -112,7 +112,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillTooltip.ShowToolTip(true, rect, this);
 
-        if (isUnlocked == false || isLocked == false)
+        if (isUnlocked|| isLocked)
+            return;
+
             ToggleHighlightColor(true);
     }
 
@@ -120,7 +122,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillTooltip.ShowToolTip(false, rect);
 
-        if (isUnlocked == false || isLocked == false)
+        if (isUnlocked|| isLocked)
+            return;
+            
             ToggleHighlightColor(false);
     }
 

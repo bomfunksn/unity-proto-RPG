@@ -4,7 +4,7 @@ public abstract class PlayerState : EntityState
 {
     protected Player player;
     protected PlayerInputSet input;
-
+    protected Player_SkillManager skills;
 
 
 
@@ -16,6 +16,7 @@ public abstract class PlayerState : EntityState
         rb = player.rb;
         input = player.input;
         stats = player.stats;
+        skills = player.skillManager;
     }
 
     public override void Update()
@@ -23,7 +24,10 @@ public abstract class PlayerState : EntityState
         base.Update();
 
         if (input.Player.Dash.WasPressedThisFrame() && CanDash())
+        {
+            skills.dash.SetSkillOnCooldown();
             stateMachine.ChangeState(player.dashState);
+        }
     }
 
     public override void UpdateAnimationParameters()
@@ -35,6 +39,9 @@ public abstract class PlayerState : EntityState
 
     private bool CanDash()
     {
+        if (skills.dash.CanUseSkill() == false)
+            return false;
+
         if (player.wallDetected)
             return false;
 
