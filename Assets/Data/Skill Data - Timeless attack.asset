@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
-  m_Name: Skill Data - Time echo
+  m_Name: Skill Data - Timeless attack
   m_EditorClassIdentifier: 
-  cost: 1
-  displayName: Time echo
-  description: 'Create a little copy of yourself.
-
-    The echo will attack enemies.'
-  icon: {fileID: -2108153408, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  cost: 2
+  displayName: Timeless attack
+  description: The Time Echo can perform 1 attack
+  icon: {fileID: 797146819, guid: b5655e30f8eedfe449d3268458428856, type: 3}

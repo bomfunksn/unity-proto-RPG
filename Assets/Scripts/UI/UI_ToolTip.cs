@@ -4,14 +4,14 @@ using UnityEngine;
 public class UI_ToolTip : MonoBehaviour
 {
     private RectTransform rect;
-    [SerializeField] private Vector2 offset = new Vector2 (300,20);
+    [SerializeField] private Vector2 offset = new Vector2(300, 20);
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
-    public virtual void ShowToolTip (bool show, RectTransform targetRect)
+    public virtual void ShowToolTip(bool show, RectTransform targetRect)
     {
         if (show == false)
         {
@@ -40,8 +40,13 @@ public class UI_ToolTip : MonoBehaviour
         if (topY > screenTop)
             targetPosition.y = screenTop - verticatHalf - offset.y;
         else if (bottomY < screenBottom)
-            targetPosition.y = screenBottom + verticatHalf + offset.y;       
+            targetPosition.y = screenBottom + verticatHalf + offset.y;
 
         rect.position = targetPosition;
+    }
+    
+    protected string GetColoredText(string color, string text)
+    {
+        return $"<color={color}>{text}</color>";
     }
 }
