@@ -4,5 +4,7 @@ public enum SkillType
 
 {
     Dash,
-    TimeEcho
+    TimeEcho,
+    TimeShard
+
 }

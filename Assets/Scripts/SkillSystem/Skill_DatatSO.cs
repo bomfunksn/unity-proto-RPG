@@ -7,6 +7,7 @@ public class Skill_DatatSO : ScriptableObject
 {
 
     public int cost;
+    public bool undlockByDefault;
     public SkillType skillType;
     public UpgradeData upgradeData;
 

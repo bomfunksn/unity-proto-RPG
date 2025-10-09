@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
-  m_Name: Skill Data - Dash
+  m_Name: Skill Data - Time Shard
   m_EditorClassIdentifier: 
-  cost: 1
-  undlockByDefault: 0
-  skillType: 0
+  cost: 0
+  undlockByDefault: 1
+  skillType: 2
   upgradeData:
-    upgradeType: 1
-    cooldown: 3
-  displayName: Dash
-  description: 'Improve your movement skills '
-  icon: {fileID: -1422192031, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+    upgradeType: 6
+    cooldown: 1
+  displayName: Time Shard
+  description: 'Create the time shard that exploads near the enemies and deal elemental
+    damage.
+
+    If no enemies touches it - it explodes after some time.'
+  icon: {fileID: -1667546259, guid: b5655e30f8eedfe449d3268458428856, type: 3}
