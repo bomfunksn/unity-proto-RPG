@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Dash
   m_EditorClassIdentifier: 
   cost: 1
+  skillType: 0
+  upgradeData:
+    upgradeType: 0
+    cooldown: 3
   displayName: Dash
   description: 'Improve your movement skills '
   icon: {fileID: -1422192031, guid: b5655e30f8eedfe449d3268458428856, type: 3}

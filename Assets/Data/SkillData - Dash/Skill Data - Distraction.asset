@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Distraction
   m_EditorClassIdentifier: 
   cost: 2
+  skillType: 0
+  upgradeData:
+    upgradeType: 3
+    cooldown: 3
   displayName: Distraction
   description: Leave a time shard behind after Dash
   icon: {fileID: 328527571, guid: b5655e30f8eedfe449d3268458428856, type: 3}

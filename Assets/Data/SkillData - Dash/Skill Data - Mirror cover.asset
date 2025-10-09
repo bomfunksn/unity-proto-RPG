@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Mirror cover
   m_EditorClassIdentifier: 
   cost: 2
+  skillType: 0
+  upgradeData:
+    upgradeType: 1
+    cooldown: 3
   displayName: Mirror cover
   description: Leave the Time echo with Dash to cover your back
   icon: {fileID: -1453245243, guid: b5655e30f8eedfe449d3268458428856, type: 3}

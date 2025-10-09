@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Second chance
   m_EditorClassIdentifier: 
   cost: 3
+  skillType: 0
+  upgradeData:
+    upgradeType: 4
+    cooldown: 3
   displayName: Second chance
   description: Create a time shard with arrival after Dash
   icon: {fileID: 1529347903, guid: b5655e30f8eedfe449d3268458428856, type: 3}
