@@ -12,7 +12,10 @@ public class Player : Entity
     private UI ui;
 
     public PlayerInputSet input { get; private set; }
+    public Player_SkillManager skillManager { get; private set; }
+    public Player_VFX vfx { get; private set; }
 
+    #region State Variables
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
@@ -24,7 +27,7 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_Deadstate deadState{ get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
-
+#endregion
 
     [Header("Attack Details")]
     public Vector2[] attackVelocity;
@@ -54,8 +57,9 @@ public class Player : Entity
         base.Awake();
 
         ui = FindFirstObjectByType<UI>();
-
         input = new PlayerInputSet();
+        skillManager = GetComponent<Player_SkillManager>();
+        vfx = GetComponent<Player_VFX>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -143,6 +147,8 @@ public class Player : Entity
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         input.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
+        input.Player.Spell.performed += ctx => skillManager.shard.CreateShard();
+        
     }
 
     private void OnDisable()
