@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
-  m_Name: Skill Data - Mirror cover
+  m_Name: Skill Data - Health anchor
   m_EditorClassIdentifier: 
-  cost: 2
+  cost: 3
   undlockByDefault: 0
-  skillType: 0
+  skillType: 2
   upgradeData:
-    upgradeType: 2
-    cooldown: 3
-  displayName: Mirror cover
-  description: Leave the Time echo with Dash to cover your back
-  icon: {fileID: -1453245243, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+    upgradeType: 10
+    cooldown: 4
+  displayName: Health anchor
+  description: After the teleport your health become that amount which been at the
+    moment of shard creation
+  icon: {fileID: 921500433, guid: b5655e30f8eedfe449d3268458428856, type: 3}

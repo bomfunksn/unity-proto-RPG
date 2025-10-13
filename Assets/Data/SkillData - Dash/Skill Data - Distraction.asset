@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Distraction
   m_EditorClassIdentifier: 
   cost: 2
+  undlockByDefault: 0
   skillType: 0
   upgradeData:
-    upgradeType: 3
+    upgradeType: 4
     cooldown: 3
   displayName: Distraction
   description: Leave a time shard behind after Dash

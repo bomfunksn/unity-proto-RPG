@@ -75,8 +75,10 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
-                stateMachine.Initialize(idleState);
+        stateMachine.Initialize(idleState);
     }
+
+    public void TeleportPlayer(Vector3 position) => transform.position = position;
 
     protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {

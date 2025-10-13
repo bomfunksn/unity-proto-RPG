@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Skill Data - Mirror cover IMPROVED
   m_EditorClassIdentifier: 
   cost: 3
+  undlockByDefault: 0
   skillType: 0
   upgradeData:
-    upgradeType: 4
+    upgradeType: 3
     cooldown: 3
   displayName: Mirror cover IMPROVED
   description: The probability of mirror resistance is extremely low, because of

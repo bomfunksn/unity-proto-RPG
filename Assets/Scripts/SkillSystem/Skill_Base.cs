@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
-    [Header("General Details")]
+    public Player player { get; private set; }
 
+    [Header("General Details")]
     [SerializeField] protected UpgradeData skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
@@ -11,6 +12,7 @@ public class Skill_Base : MonoBehaviour
 
     protected virtual void Awake()
     {
+        player = GetComponentInParent<Player>();
         lastTimeUsed = lastTimeUsed - cooldown;
     }
 
@@ -41,7 +43,7 @@ public class Skill_Base : MonoBehaviour
         return true;
     }
 
-    private bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
+    protected bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
     public float SetSkillOnCooldown() => lastTimeUsed = Time.time;
     public void ResetCooldownBy(float cooldownReduction) => lastTimeUsed = lastTimeUsed + cooldownReduction;
     public void ResetCooldown() => lastTimeUsed = Time.time;
