@@ -18,6 +18,16 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 6
     cooldown: 1
+    damageScale:
+      physical: 0
+      elemetal: 1.5
+      chillDuration: 3
+      chillSlowMultiplier: 0.4
+      burnDuration: 3
+      burnDamageScale: 1.5
+      shockDuration: 3
+      shockDamageScale: 1.5
+      shockCharge: 0.4
   displayName: Time Shard
   description: 'Create the time shard that exploads near the enemies and deal elemental
     damage.

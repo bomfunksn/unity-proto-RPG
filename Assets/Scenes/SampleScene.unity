@@ -7896,7 +7896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5596008, y: 5.5596313}
+  m_AnchoredPosition: {x: 1.5595703, y: 5.5596313}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274495236
@@ -8199,7 +8199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344.4001, y: -45.896423}
+  m_AnchoredPosition: {x: 344.40002, y: -45.896362}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &307389019
@@ -23882,6 +23882,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f7746eb4543d94a96f577de0bdd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicAttackScale:
+    physical: 1
+    elemetal: 1
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 11601890}
   targerCheckRadius: 1
   whatIsTarget:
@@ -23923,7 +23933,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 11400000, guid: 501a51d54f9addb4a9930f81233935e9, type: 2}
   resources:
     maxHealth:
-      baseValue: 100
+      baseValue: 300
       modifiers: []
     healthRegen:
       baseValue: 0
@@ -23933,7 +23943,7 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 10
+      baseValue: 5
       modifiers: []
     critChance:
       baseValue: 0
@@ -23951,7 +23961,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
   defence:
     armor:
@@ -25134,6 +25144,16 @@ MonoBehaviour:
   skillType:
     upgradeType: 0
     cooldown: 0
+    damageScale:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
   upgradeType: 0
   cooldown: 3
 --- !u!114 &595438351
@@ -25151,6 +25171,16 @@ MonoBehaviour:
   skillType:
     upgradeType: 0
     cooldown: 0
+    damageScale:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
   upgradeType: 0
   cooldown: 1
   shardPrefab: {fileID: 2749753961258638160, guid: 43dd80949ac5f6541a1dbc9289852155, type: 3}
@@ -25609,7 +25639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5596008, y: -105.94037}
+  m_AnchoredPosition: {x: 1.5595703, y: -105.34039}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &653613717
@@ -27729,7 +27759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 238.44038, y: -106.64044}
+  m_AnchoredPosition: {x: 238.44037, y: -107.24036}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &981050590
@@ -29084,6 +29114,14 @@ PrefabInstance:
     - target: {fileID: 3910810091663318675, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958424464882226299, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958424464882226299, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
+      propertyPath: resources.healthRegen.baseValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8176847589188759987, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: m_Name
@@ -31234,8 +31272,8 @@ RectTransform:
   - {fileID: 188202558}
   - {fileID: 1312352591}
   - {fileID: 1118083990}
-  - {fileID: 297400817}
   - {fileID: 2104096516}
+  - {fileID: 297400817}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -31615,10 +31653,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932984062}
-  - {fileID: 274495235}
-  - {fileID: 1563933028}
   - {fileID: 966624021}
   - {fileID: 649264385}
+  - {fileID: 274495235}
+  - {fileID: 1563933028}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -32423,7 +32461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.600006, y: -45.896423}
+  m_AnchoredPosition: {x: -50.599976, y: -45.896362}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104096517

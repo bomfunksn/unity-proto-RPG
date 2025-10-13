@@ -5,7 +5,7 @@ public class Entity_Combat : MonoBehaviour
 {
     private Entity_VFX vfx;
     private Entity_Stats stats;
-
+    public DamageScaleData basicAttackScale;
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
@@ -35,6 +35,8 @@ public class Entity_Combat : MonoBehaviour
             if (damageble == null)
                 continue;
 
+            ElementalEffectData effectData = new ElementalEffectData(stats, basicAttackScale);
+
             float elementalDamage = stats.GetElementalDamage(out ElementType element, .6f);
             float damage = stats.GetPhysicalDamage(out bool isCrit);
 
@@ -42,7 +44,7 @@ public class Entity_Combat : MonoBehaviour
             bool targetGotHit = damageble.TakeDamage(damage, elementalDamage, element, transform);
 
             if (element != ElementType.none)
-                ApplyStatusEffect(target.transform, element);
+                target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, effectData);
 
             if (targetGotHit)
             {
@@ -50,31 +52,6 @@ public class Entity_Combat : MonoBehaviour
                 vfx.CreateOnHitVFX(target.transform, isCrit);
             }
         }
-    }
-
-    public void ApplyStatusEffect(Transform target, ElementType element, float scaleFactor = 1f)
-    {
-        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-
-        if (statusHandler == null)
-            return;
-
-        if (element == ElementType.Ice && statusHandler.CanBeApplied(ElementType.Ice))
-            statusHandler.ApplyChillEffect(defaultDuration, chillSlowMultiplier * scaleFactor);
-
-        if (element == ElementType.Fire && statusHandler.CanBeApplied(ElementType.Fire))
-        {
-            scaleFactor = fireScale;
-            float fireDamage = stats.offence.fireDamage.GetValue() * scaleFactor;
-            statusHandler.ApplyBurnEffect(defaultDuration, fireDamage);
-        }
-        if (element == ElementType.Lightning && statusHandler.CanBeApplied(ElementType.Lightning))
-        {
-            scaleFactor = lightningScale;
-            float lightningDamage = stats.offence.lightningDamage.GetValue() * scaleFactor;
-            statusHandler.ApplyElecrifyEffect(defaultDuration, lightningDamage, electrifyChargeBuildUp);
-        }
-                
     }
 
     protected Collider2D[] GetDetectedColliders()

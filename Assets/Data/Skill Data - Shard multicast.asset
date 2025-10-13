@@ -18,6 +18,16 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 8
     cooldown: 4
+    damageScaleData:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.6
   displayName: Multishard
   description: Time Shard got 3 charges
   icon: {fileID: 1160183108, guid: b5655e30f8eedfe449d3268458428856, type: 3}

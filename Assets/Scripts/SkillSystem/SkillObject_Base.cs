@@ -6,6 +6,9 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected Transform targetcheck;
     [SerializeField] protected float checkRadius = 1;
 
+    protected Entity_Stats playerStats;
+    protected DamageScaleData damageScaleData;
+    
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         foreach (var target in EnemiesAround(t, radius))
@@ -15,7 +18,16 @@ public class SkillObject_Base : MonoBehaviour
             if (damageble == null)
                 continue;
 
-            damageble.TakeDamage(1, 1, ElementType.none, transform);
+            ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
+
+
+            float physDamage = playerStats.GetPhysicalDamage(out bool isCrit, damageScaleData.physical);
+            float elemeDamage = playerStats.GetElementalDamage(out ElementType element, damageScaleData.elemetal);
+
+            damageble.TakeDamage(physDamage, elemeDamage, element, transform);
+
+            if (element != ElementType.none)
+                target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element,effectData);
         }
     }
 

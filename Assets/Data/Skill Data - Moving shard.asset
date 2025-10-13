@@ -18,6 +18,16 @@ MonoBehaviour:
   upgradeData:
     upgradeType: 7
     cooldown: 4
+    damageScaleData:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
   displayName: Irritated Shard
   description: The shard can find your enemies and move to them
   icon: {fileID: 297297123, guid: b5655e30f8eedfe449d3268458428856, type: 3}
