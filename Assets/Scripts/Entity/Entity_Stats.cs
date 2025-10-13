@@ -1,5 +1,3 @@
-
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
