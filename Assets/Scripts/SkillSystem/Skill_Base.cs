@@ -6,12 +6,17 @@ public class Skill_Base : MonoBehaviour
 
     [SerializeField] protected UpgradeData skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
-    [SerializeField] private float cooldown;
+    [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
     protected virtual void Awake()
     {
         lastTimeUsed = lastTimeUsed - cooldown;
+    }
+
+    public virtual void TryUseSkill()
+    {
+        
     }
 
     public void SetSkillUpgrade(UpgradeData upgrade)
@@ -26,7 +31,7 @@ public class Skill_Base : MonoBehaviour
     {
         if (upgradeType == SkillUpgradeType.None)
             return false;
-            
+
         if (OnCooldown())
         {
             Debug.Log("dash is on cooldown");
