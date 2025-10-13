@@ -12,6 +12,9 @@ public class Player_DashState : PlayerState
     {
         base.Enter();
 
+        skillManager.dash.OnStartEffect();
+        player.vfx.DoMirrorImageEffect(player.dashDuration);
+
         dashDir = player.moveInput.x != 0 ? ((int)player.moveInput.x) : player.facingDir;
 
         stateTimer = player.dashDuration;
@@ -37,6 +40,8 @@ public class Player_DashState : PlayerState
     }
     public override void Exit()
     {
+        skillManager.dash.OnEndEffect();
+
         base.Exit();
 
         player.SetVelocity(0, 0);
