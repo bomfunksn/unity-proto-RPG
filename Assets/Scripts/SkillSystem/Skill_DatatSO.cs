@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Skill_DatatSO : ScriptableObject
 {
-
-    public int cost;
-    public bool undlockByDefault;
-    public SkillType skillType;
-    public UpgradeData upgradeData;
-
-
     [Header("Skill description")]
     public string displayName;
     [TextArea]
     public string description;
     public Sprite icon;
+
+[Header("Unlock & Upgrade")]
+    public int cost;
+    public bool undlockByDefault;
+    public SkillType skillType;
+    public UpgradeData upgradeData;
+
 }
 
 [Serializable]

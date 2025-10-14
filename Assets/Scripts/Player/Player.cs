@@ -91,6 +91,7 @@ public class Player : Entity
         Array.Copy(attackVelocity, originalAttackVelocity, attackVelocity.Length);
 
         float speedMultiplier = 1 - slowMultiplier;
+        Debug.Log($"speed multiplier: {speedMultiplier} for {duration} seconds through player class");
 
         moveSpeed = moveSpeed * speedMultiplier;
         jumpForce = jumpForce * speedMultiplier;

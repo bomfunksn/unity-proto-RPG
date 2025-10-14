@@ -12,7 +12,7 @@ public class Entity_StatusHandler : MonoBehaviour
     [Header("electrify effect details")]
     [SerializeField] private GameObject lightningStrikeVfx;
     [SerializeField] private float currentCharge;
-    [SerializeField] private float maximumCharge=1f;
+    [SerializeField] private float maximumCharge = 1f;
     private Coroutine shockCo;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class Entity_StatusHandler : MonoBehaviour
     public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
     {
         if (element == ElementType.Ice && CanBeApplied(ElementType.Ice))
-            ApplyChillEffect(effectData.chillDuration, effectData.chillDuration);
+            ApplyChillEffect(effectData.chillDuration, effectData.chillSlowMultiplier);
         if (element == ElementType.Fire && CanBeApplied(ElementType.Fire))
             ApplyBurnEffect(effectData.totalBurnDuration, effectData.totalBurnDamage);
         if (element == ElementType.Lightning && CanBeApplied(ElementType.Lightning))
@@ -104,7 +104,7 @@ public class Entity_StatusHandler : MonoBehaviour
 
     public void ApplyChillEffect(float duration, float slowMultiplier)
     {
-        float iceResistance = entityStats.GetElementalResistance(ElementType.Fire);
+        float iceResistance = entityStats.GetElementalResistance(ElementType.Ice);
         float finalDuration = duration * (1 - iceResistance);
 
         StartCoroutine(ChillEffectCo(finalDuration, slowMultiplier));
@@ -115,7 +115,6 @@ public class Entity_StatusHandler : MonoBehaviour
         entity.SlowDownEntity(duration, slowMultiplier);
         currentEffect = ElementType.Ice;
         entityVfx.PlayOnStatusVfx(duration, ElementType.Ice);
-
         yield return new WaitForSeconds(duration);
         currentEffect = ElementType.none;
     }

@@ -8,7 +8,8 @@ public class SkillObject_Base : MonoBehaviour
 
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScaleData;
-    
+    protected ElementType usedElement;
+
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         foreach (var target in EnemiesAround(t, radius))
@@ -18,16 +19,20 @@ public class SkillObject_Base : MonoBehaviour
             if (damageble == null)
                 continue;
 
-            ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
+            AttackData attackData = playerStats.GetAttackData(damageScaleData);
+            Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
-
-            float physDamage = playerStats.GetPhysicalDamage(out bool isCrit, damageScaleData.physical);
-            float elemeDamage = playerStats.GetElementalDamage(out ElementType element, damageScaleData.elemetal);
+            float physDamage = attackData.physicalDamage;
+            float elemeDamage = attackData.elementalDamage;
+            ElementType element = attackData.element;
 
             damageble.TakeDamage(physDamage, elemeDamage, element, transform);
 
             if (element != ElementType.none)
-                target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element,effectData);
+                target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
+
+
+            usedElement = element;
         }
     }
 

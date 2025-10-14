@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Skill Data - Time shard
   m_EditorClassIdentifier: 
   cost: 0
-  undlockByDefault: 1
+  undlockByDefault: 0
   skillType: 2
   upgradeData:
     upgradeType: 6
     cooldown: 1
-    damageScale:
-      physical: 0
-      elemetal: 1.5
+    damageScaleData:
+      physical: 1
+      elemetal: 1
       chillDuration: 3
-      chillSlowMultiplier: 0.4
+      chillSlowMultiplier: 0.2
       burnDuration: 3
-      burnDamageScale: 1.5
+      burnDamageScale: 1
       shockDuration: 3
-      shockDamageScale: 1.5
+      shockDamageScale: 1
       shockCharge: 0.4
   displayName: Time Shard
   description: 'Create the time shard that exploads near the enemies and deal elemental

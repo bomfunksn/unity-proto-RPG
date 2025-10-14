@@ -62,9 +62,10 @@ public class Entity : MonoBehaviour
         if (slowDownCo != null)
             StopCoroutine(slowDownCo);
         slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
+        Debug.Log($"Slowed by: {slowMultiplier} for {duration} seconds through entity class");
     }
 
-    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier) 
     {
         yield return null;
     }

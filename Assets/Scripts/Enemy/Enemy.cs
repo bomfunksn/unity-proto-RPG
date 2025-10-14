@@ -43,6 +43,7 @@ public class Enemy : Entity
         float originalAnimSpeed = anim.speed;
 
         float speedMultiplier = 1 - slowMultiplier;
+        Debug.Log($"Slowed by: {slowMultiplier} for {duration} seconds through enemy class");
 
         moveSpeed = moveSpeed * speedMultiplier;
         battleMoveSpeed = battleMoveSpeed * speedMultiplier;
