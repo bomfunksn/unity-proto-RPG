@@ -7896,7 +7896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5596008, y: 5.5596313}
+  m_AnchoredPosition: {x: 1.5595703, y: 5.5596313}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274495236
@@ -23777,8 +23777,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 595438349}
   - {fileID: 797908865}
+  - {fileID: 595438349}
   - {fileID: 1618098086}
   - {fileID: 1970965560}
   - {fileID: 11601890}
@@ -25176,10 +25176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 3
-  upgradeType: 0
+  upgradeType: 11
   cooldown: 0
+  swordPrefab: {fileID: 7758325536837959511, guid: 63d49bccb5332944d906df58a985b853, type: 3}
   throwPower: 5
-  swordGravity: 4.5
   predictionDot: {fileID: 7583646229101593010, guid: 799db4c58e8a06847b15d6d8891d7c8d, type: 3}
   numberOfDots: 20
   spaceBetweenDots: 0.05
@@ -27006,7 +27006,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 797908864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf62eef9a8f30c3419fe0977c8140413, type: 3}
+  m_Script: {fileID: 11500000, guid: 483cb5e2a4ad4b44fa551489881b199a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &804181987
@@ -31274,10 +31274,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 188202558}
-  - {fileID: 297400817}
-  - {fileID: 2104096516}
   - {fileID: 1312352591}
   - {fileID: 1118083990}
+  - {fileID: 2104096516}
+  - {fileID: 297400817}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -31390,10 +31390,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 249330125}
-  - {fileID: 1663965466}
-  - {fileID: 616923730}
   - {fileID: 1518311375}
   - {fileID: 671298696}
+  - {fileID: 1663965466}
+  - {fileID: 616923730}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
