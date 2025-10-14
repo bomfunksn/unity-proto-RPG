@@ -8,7 +8,7 @@ public class Skill_Base : MonoBehaviour
     public DamageScaleData damageScaleData { get; private set; }
 
     [Header("General Details")]
-    [SerializeField] protected UpgradeData skillType;
+    [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
     private float lastTimeUsed;

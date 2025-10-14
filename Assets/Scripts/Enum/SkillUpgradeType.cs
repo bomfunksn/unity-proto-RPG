@@ -13,7 +13,10 @@ public enum SkillUpgradeType
     Shard_MoveToEnemy,
     Shard_Multicast,
     Shard_Teleport,
-    Shard_TeleportHpRewind
+    Shard_TeleportHpRewind,
 
-
+    SwordThrow,
+    SwordThrow_Spin,
+    SwordThrow_Pierce,
+    SwordThrow_Bounce
 }
