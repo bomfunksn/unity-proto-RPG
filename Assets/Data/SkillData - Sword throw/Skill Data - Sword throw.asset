@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
   m_Name: Skill Data - Sword throw
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
-  icon: {fileID: 0}
-  cost: 0
+  displayName: Sword Throw
+  description: Can throw the sword to damage the enemies.
+  icon: {fileID: 758619599, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  cost: 1
   undlockByDefault: 0
-  skillType: 0
+  skillType: 3
   upgradeData:
-    upgradeType: 0
-    cooldown: 0
+    upgradeType: 11
+    cooldown: 4
     damageScaleData:
       physical: 1
       elemetal: 1
