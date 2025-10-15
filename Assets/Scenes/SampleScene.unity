@@ -7815,7 +7815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1160183108, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  m_Sprite: {fileID: -1733087161, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8213,7 +8213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5595703, y: 1.5596313}
+  m_AnchoredPosition: {x: 1.5596313, y: 1.5596313}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274495236
@@ -8592,7 +8592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344.40002, y: -45.896362}
+  m_AnchoredPosition: {x: 344.39996, y: -45.896423}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &307389019
@@ -24035,7 +24035,7 @@ GameObject:
   - component: {fileID: 348244460}
   - component: {fileID: 348244461}
   m_Layer: 5
-  m_Name: UI_TreeNode - Irritated Shard
+  m_Name: UI_TreeNode - Spin right round
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24060,10 +24060,10 @@ MonoBehaviour:
   - {fileID: 1256809916}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: a913aefbcba0d4b43a9415486d80c717, type: 2}
-  skillName: Irritated Shard
+  skillData: {fileID: 11400000, guid: 7fe0003bb4d7fa34d9e9248f349b80e0, type: 2}
+  skillName: Spin right round
   skillIcon: {fileID: 361013840}
-  skillCost: 2
+  skillCost: 1
   lockedColorHex: '#878787'
 --- !u!114 &348244461
 MonoBehaviour:
@@ -24138,7 +24138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 297297123, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  m_Sprite: {fileID: 1229085533, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25721,12 +25721,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 3
-  upgradeType: 13
+  upgradeType: 12
   cooldown: 0
   swordPrefab: {fileID: 7758325536837959511, guid: 63d49bccb5332944d906df58a985b853, type: 3}
   throwPower: 2
   pierceSwordPrefab: {fileID: 8007688411657405253, guid: f508ead055eb365439aa30ac3369b575, type: 3}
   amountToPierce: 2
+  spinSwordPrefab: {fileID: 7769034253511226272, guid: 0f0821d8bf6cc6446a18fa2f480fcc3b, type: 3}
+  maxDistance: 5
+  attacksPerSecond: 6
+  maxSpinDuration: 3
   predictionDot: {fileID: 7583646229101593010, guid: 799db4c58e8a06847b15d6d8891d7c8d, type: 3}
   numberOfDots: 20
   spaceBetweenDots: 0.05
@@ -26253,7 +26257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5595703, y: -109.34039}
+  m_AnchoredPosition: {x: 1.5596313, y: -109.340454}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &653613717
@@ -27382,6 +27386,7 @@ MonoBehaviour:
   - {fileID: 249330127}
   - {fileID: 188202557}
   - {fileID: 932984063}
+  - {fileID: 1000322676}
 --- !u!1 &761491394
 GameObject:
   m_ObjectHideFlags: 0
@@ -27521,7 +27526,7 @@ GameObject:
   - component: {fileID: 782509106}
   - component: {fileID: 782509107}
   m_Layer: 5
-  m_Name: UI_TreeNode - Multishard
+  m_Name: UI_TreeNode - Pierce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27546,10 +27551,10 @@ MonoBehaviour:
   - {fileID: 1256809916}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: d98f540840e5ad146955fe458f23fc35, type: 2}
-  skillName: Multishard
+  skillData: {fileID: 11400000, guid: 669b77b1a2347ca4f9395d38f8cdcb58, type: 2}
+  skillName: Pierce
   skillIcon: {fileID: 189097513}
-  skillCost: 3
+  skillCost: 2
   lockedColorHex: '#878787'
 --- !u!114 &782509107
 MonoBehaviour:
@@ -30120,11 +30125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3910810091663318675, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3910810091663318675, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3958424464882226299, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: offence.damage.baseValue
@@ -30148,7 +30153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176847589188759987, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31219,7 +31224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.239624, y: -10.535889}
+  m_AnchoredPosition: {x: -15.239746, y: -10.535889}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518311376
@@ -32669,9 +32674,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 188202558}
+  - {fileID: 2104096516}
   - {fileID: 1312352591}
   - {fileID: 1118083990}
-  - {fileID: 2104096516}
   - {fileID: 297400817}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32837,10 +32842,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 249330125}
-  - {fileID: 1518311375}
-  - {fileID: 671298696}
   - {fileID: 1663965466}
   - {fileID: 616923730}
+  - {fileID: 1518311375}
+  - {fileID: 671298696}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -33104,10 +33109,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932984062}
-  - {fileID: 649264385}
+  - {fileID: 966624021}
   - {fileID: 274495235}
   - {fileID: 1563933028}
-  - {fileID: 966624021}
+  - {fileID: 649264385}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

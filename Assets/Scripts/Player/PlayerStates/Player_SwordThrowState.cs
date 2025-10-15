@@ -38,11 +38,8 @@ public class Player_SwordThrowState : PlayerState
             //creation of sword
         }
         if (input.Player.RangeAttack.WasReleasedThisFrame() || triggerCalled)
-        {
-            Debug.Log($"Trigger {triggerCalled} called");
             stateMachine.ChangeState(player.idleState);
-            
-        }
+
 
     }
     public override void Exit()

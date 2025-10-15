@@ -15,6 +15,12 @@ public class Skill_SwordThrow : Skill_Base
     [SerializeField] private GameObject pierceSwordPrefab;
     public int amountToPierce = 2;
 
+    [Header("Spinning Sword Upgrade")]
+    [SerializeField] private GameObject spinSwordPrefab;
+    public int maxDistance =5;
+    public float attacksPerSecond = 6;
+    public float maxSpinDuration = 3;
+
 
     [Header("Trajectory calculation")]
     [SerializeField] private GameObject predictionDot;
@@ -58,6 +64,9 @@ public class Skill_SwordThrow : Skill_Base
 
         if (Unlocked(SkillUpgradeType.SwordThrow_Pierce))
             return pierceSwordPrefab;
+
+        if (Unlocked(SkillUpgradeType.SwordThrow_Spin))
+            return spinSwordPrefab;
 
         Debug.Log("No sword prefab");
         return null;

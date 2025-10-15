@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
+  m_Name: Skill Data - Spin right round
+  m_EditorClassIdentifier: 
+  displayName: Spin right round
+  description: Ability to spin sword and deal damage per second to the enemies by
+    it.
+  icon: {fileID: 1229085533, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  cost: 1
+  undlockByDefault: 0
+  skillType: 3
+  upgradeData:
+    upgradeType: 12
+    cooldown: 4
+    damageScaleData:
+      physical: 0.2
+      elemetal: 0.2
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 0.4
+      shockCharge: 0.4
