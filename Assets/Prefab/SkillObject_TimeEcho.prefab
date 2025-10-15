@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4499896568580419027}
   - component: {fileID: 3015133968222641245}
   - component: {fileID: 3316081855174210630}
+  - component: {fileID: 693383719556272463}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2140065079, guid: 18aa3e4f8589c374e90dcc4977989529, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33490568, g: 0.6444658, b: 1, a: 0.54509807}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,6 +111,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &693383719556272463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313187915824643839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ec1ffb951ef141aeff875e2480fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2973905143898092217
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +271,7 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256
-  targetcheck: {fileID: 6135325036097150343}
+  targetcheck: {fileID: 6301675485442651675}
   checkRadius: 1
   onDeathVfx: {fileID: 8701542041160829815, guid: eb4018b6bfa5c3746986066ebe19a5ff, type: 3}
   whatIsGround:

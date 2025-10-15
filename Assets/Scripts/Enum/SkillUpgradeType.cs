@@ -22,8 +22,8 @@ public enum SkillUpgradeType
 
     TimeEcho,
     TimeEcho_SingleAttack,
-    TimeEcho_MultipleAttack,
-    TimeEcho_ChanceToMultiply,
+    TimeEcho_MultiAttack,
+    TimeEcho_DuplicateChance,
 
     TimeEcho_HealWisp,
 

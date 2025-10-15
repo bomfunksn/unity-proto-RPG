@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
   m_Name: Skill Data - Time echo
   m_EditorClassIdentifier: 
-  cost: 1
   displayName: Time echo
   description: 'Create a little copy of yourself.
 
     The echo will attack enemies.'
   icon: {fileID: -2108153408, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  cost: 1
+  undlockByDefault: 0
+  skillType: 1
+  upgradeData:
+    upgradeType: 15
+    cooldown: 0
+    damageScaleData:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
