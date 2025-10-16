@@ -27,7 +27,7 @@ public enum SkillUpgradeType
 
     TimeEcho_HealWisp,
 
-    TimeEcho_CleanceWisp,
+    TimeEcho_CleanseWisp,
     TimeEcho_CooldownWisp
 
 }
