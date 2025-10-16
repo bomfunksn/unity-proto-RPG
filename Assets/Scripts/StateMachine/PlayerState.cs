@@ -28,6 +28,19 @@ public abstract class PlayerState : EntityState
             skillManager.dash.SetSkillOnCooldown();
             stateMachine.ChangeState(player.dashState);
         }
+
+        if(input.Player.UltimateSpell.WasPressedThisFrame() && skillManager.chronosphere.CanUseSkill())
+        {
+            if (skillManager.chronosphere.InstantChronosphere())
+            {
+                skillManager.chronosphere.CreateChronosphere();
+            }
+            else
+            {
+                stateMachine.ChangeState(player.chronosphereState);
+            }
+            skillManager.chronosphere.SetSkillOnCooldown();
+        }
     }
 
     public override void UpdateAnimationParameters()

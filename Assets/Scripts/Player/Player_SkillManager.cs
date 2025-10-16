@@ -6,6 +6,7 @@ public class Player_SkillManager : MonoBehaviour
     public Skill_Shard shard { get; private set; }
     public Skill_SwordThrow swordThrow { get; private set; }
     public Skill_TimeEcho timeEcho { get; private set; }
+    public Skill_Chronosphere chronosphere { get; private set; }
 
     private Skill_Base[] allSkills;
 
@@ -15,8 +16,10 @@ public class Player_SkillManager : MonoBehaviour
         shard = GetComponentInChildren<Skill_Shard>();
         swordThrow = GetComponentInChildren<Skill_SwordThrow>();
         timeEcho = GetComponentInChildren<Skill_TimeEcho>();
+        chronosphere = GetComponentInChildren<Skill_Chronosphere>();
 
         allSkills = GetComponentsInChildren<Skill_Base>();
+
     }
 
     public void ReduceAllSkillCooldown(float amount)
@@ -31,8 +34,9 @@ public class Player_SkillManager : MonoBehaviour
         {
             case SkillType.Dash: return dash;
             case SkillType.TimeShard: return shard;
-            case SkillType.swordThrow: return swordThrow;
+            case SkillType.SwordThrow: return swordThrow;
             case SkillType.TimeEcho: return timeEcho;
+            case SkillType.Chronosphere: return chronosphere;
 
             default:
                 Debug.Log($"Skill type {type} not implemented yet.");

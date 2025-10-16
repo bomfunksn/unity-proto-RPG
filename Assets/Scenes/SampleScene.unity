@@ -8592,7 +8592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344.40002, y: -45.896362}
+  m_AnchoredPosition: {x: 344.39996, y: -45.896423}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &307389019
@@ -24302,6 +24302,8 @@ MonoBehaviour:
   jumpAttackVelocity: {x: 2, y: -18}
   attackVelocityDuration: 0.1
   comboResetTime: 1
+  riseSpeed: 25
+  riseMaxDistance: 3
   moveSpeed: 6
   jumpForce: 12
   wallJumpDir: {x: 3, y: 12}
@@ -25724,6 +25726,7 @@ GameObject:
   - component: {fileID: 595438351}
   - component: {fileID: 595438352}
   - component: {fileID: 595438353}
+  - component: {fileID: 595438354}
   m_Layer: 7
   m_Name: Skills_Holder
   m_TagString: Untagged
@@ -25829,12 +25832,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 1
-  upgradeType: 18
+  upgradeType: 19
   cooldown: 0
   timeEchoPrefab: {fileID: 7875450827956038702, guid: 121969fb0be4b16408f3077062578c24, type: 3}
   timeEchoDuration: 15
   maxAttacks: 3
   duplicateChance: 1
+  damagePercentHealed: 0.3
+  cooldownReducedInSeconds: 0
+--- !u!114 &595438354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595438348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c023fc4772f2161409c301263fde8680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 4
+  upgradeType: 22
+  cooldown: 0
+  chronospherePrefab: {fileID: 1756349962714037790, guid: 0a9d46e10707e804ab062dcf06ce2e08, type: 3}
 --- !u!1 &595765790
 GameObject:
   m_ObjectHideFlags: 0
@@ -26508,7 +26529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5595703, y: -109.34039}
+  m_AnchoredPosition: {x: 1.5595398, y: -109.340454}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &653613717
@@ -30855,7 +30876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3958424464882226299, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: offence.damage.baseValue
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3958424464882226299, guid: 160b24c1bdd58cf4793f0f5f186f534b, type: 3}
       propertyPath: offence.iceDamage.baseValue
@@ -33845,10 +33866,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 188202558}
+  - {fileID: 297400817}
+  - {fileID: 2104096516}
   - {fileID: 1312352591}
   - {fileID: 1118083990}
-  - {fileID: 2104096516}
-  - {fileID: 297400817}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -34090,10 +34111,10 @@ RectTransform:
   - {fileID: 249330125}
   - {fileID: 1518311375}
   - {fileID: 671298696}
-  - {fileID: 1248354838}
-  - {fileID: 1748614527}
   - {fileID: 1663965466}
   - {fileID: 616923730}
+  - {fileID: 1248354838}
+  - {fileID: 1748614527}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -34357,9 +34378,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 932984062}
-  - {fileID: 649264385}
   - {fileID: 274495235}
   - {fileID: 1563933028}
+  - {fileID: 649264385}
   - {fileID: 966624021}
   m_Father: {fileID: 758580471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35292,7 +35313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.599976, y: -45.896362}
+  m_AnchoredPosition: {x: -50.599945, y: -45.896423}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104096517

@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c618f2e2ed6324a9f1bea9fff887b2, type: 3}
   m_Name: Skill Data - Healing wisp
   m_EditorClassIdentifier: 
+  displayName: Helaing Wisp
+  description: When Time Echo is killed - it releases healing wisp, that follow you.
+  icon: {fileID: -844954353, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   cost: 2
   undlockByDefault: 0
   skillType: 1
   upgradeData:
-    upgradeType: 0
+    upgradeType: 19
     cooldown: 0
-  displayName: Helaing Wisp
-  description: When Time Echo is killed - it releases healing wisp, that follow you.
-  icon: {fileID: -844954353, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+    damageScaleData:
+      physical: 1
+      elemetal: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4

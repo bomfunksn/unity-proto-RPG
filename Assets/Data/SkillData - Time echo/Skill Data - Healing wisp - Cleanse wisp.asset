@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Skill Data - Healing wisp - Cleanse wisp
   m_EditorClassIdentifier: 
   displayName: Cleance
-  description: 'Healing wisp reduces duretions of negative effects by 1sec
-
-'
+  description: Healing wisp remove all negative statuses
   icon: {fileID: 1512082917, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   cost: 3
   undlockByDefault: 0

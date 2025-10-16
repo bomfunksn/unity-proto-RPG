@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
     public int facingDir { get; private set; } = 1;
 
     [Header("Collision detection")]
-    [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] public LayerMask whatIsGround;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private Transform groundCheck;
@@ -57,17 +57,27 @@ public class Entity : MonoBehaviour
         
     }
 
-    public virtual void SlowDownEntity(float duration, float slowMultiplier)
+    public virtual void SlowDownEntity(float duration, float slowMultiplier,bool canOverrideSlowEffect = false)
     {
         if (slowDownCo != null)
-            StopCoroutine(slowDownCo);
+        {
+            if (canOverrideSlowEffect)
+                StopCoroutine(slowDownCo);
+            else
+                return;
+        }
         slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
-        Debug.Log($"Slowed by: {slowMultiplier} for {duration} seconds through entity class");
+
     }
 
-    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier) 
+    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
         yield return null;
+    }
+    
+    public virtual void StopSlowDown()
+    {
+        slowDownCo = null;
     }
 
     public void CurrentStateAnimationTrigger()

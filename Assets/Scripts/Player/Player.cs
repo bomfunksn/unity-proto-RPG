@@ -27,6 +27,7 @@ public class Player : Entity
     public Player_Deadstate deadState{ get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
     public Player_SwordThrowState swordThrowState { get; private set; }
+    public Player_ChronosphereState chronosphereState{ get; private set; }
 
 #endregion
 
@@ -36,6 +37,10 @@ public class Player : Entity
     public float attackVelocityDuration = .1f;
     public float comboResetTime = 1f;
     private Coroutine queuedAttackCo;
+
+    [Header("Ultimate Ability")]
+    public float riseSpeed = 25;
+    public float riseMaxDistance = 3;
 
 
     [Header("Movement details")]
@@ -78,6 +83,7 @@ public class Player : Entity
         deadState = new Player_Deadstate(this, stateMachine, "dead");
         counterAttackState = new Player_CounterAttackState(this, stateMachine, "counterAttack");
         swordThrowState = new Player_SwordThrowState(this, stateMachine, "swordThrow");
+        chronosphereState = new Player_ChronosphereState(this, stateMachine, "jumpFall");
     }
     protected override void Start()
     {
@@ -98,7 +104,6 @@ public class Player : Entity
         Array.Copy(attackVelocity, originalAttackVelocity, attackVelocity.Length);
 
         float speedMultiplier = 1 - slowMultiplier;
-        Debug.Log($"speed multiplier: {speedMultiplier} for {duration} seconds through player class");
 
         moveSpeed = moveSpeed * speedMultiplier;
         jumpForce = jumpForce * speedMultiplier;

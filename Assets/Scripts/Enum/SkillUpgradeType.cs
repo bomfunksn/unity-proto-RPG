@@ -28,6 +28,9 @@ public enum SkillUpgradeType
     TimeEcho_HealWisp,
 
     TimeEcho_CleanseWisp,
-    TimeEcho_CooldownWisp
+    TimeEcho_CooldownWisp,
 
+    Chronosphere_SlowingDown,
+    Chronosphere_EchoSpam,
+Chronosphere_ShardSpam
 }
