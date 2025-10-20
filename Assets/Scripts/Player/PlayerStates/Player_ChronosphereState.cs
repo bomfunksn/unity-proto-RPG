@@ -33,18 +33,20 @@ public class Player_ChronosphereState : PlayerState
 
             if(isLevitating)
         {
-            // skillmanager cast spells
+            skillManager.chronosphere.DoSpellCasting();
+
             if (stateTimer < 0)
+            {
+                rb.gravityScale = originalGravity;
+                isLevitating = false;
                 stateMachine.ChangeState(player.idleState);
+            }
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        rb.gravityScale = originalGravity;
-        isLevitating = false;
         createdChronosphere = false;
     }
 
@@ -54,13 +56,12 @@ public class Player_ChronosphereState : PlayerState
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
 
-        stateTimer = 2;
-        //get levitation duration
+        stateTimer = skillManager.chronosphere.GetSphereDuration();
 
         if(createdChronosphere ==false)
         {
             createdChronosphere = true;
-            skillManager.chronosphere.CreateChronosphere();
+            skillManager.chronosphere.CreateSphere();
         }
     }
     

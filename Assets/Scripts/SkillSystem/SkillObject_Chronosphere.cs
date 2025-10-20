@@ -1,9 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkillObject_Chronosphere : SkillObject_Base
 {
-    private Skill_Chronosphere chronosphereManager;
+    private Skill_Chronosphere sphereManager;
 
     private float expandSpeed = 2;
     private float duration;
@@ -14,17 +13,17 @@ public class SkillObject_Chronosphere : SkillObject_Base
     private bool isShrinking;
 
 
-    public void SetupChronosphere(Skill_Chronosphere chronosphereManager)
+    public void SetupSphere(Skill_Chronosphere sphereManager)
     {
-        this.chronosphereManager = chronosphereManager;
+        this.sphereManager = sphereManager;
 
-        duration = chronosphereManager.GetChronosphereDuration();
-        slowDownPercent = chronosphereManager.GetSlowPercrntage();
-        expandSpeed = chronosphereManager.expandSpeed;
-        float maxSize = chronosphereManager.maxChronosphereSize;
+        duration = sphereManager.GetSphereDuration();
+        slowDownPercent = sphereManager.GetSlowPercrntage();
+        expandSpeed = sphereManager.expandSpeed;
+        float maxSize = sphereManager.maxChronosphereSize;
 
         targetScale = Vector3.one * maxSize;
-        Invoke(nameof(ShrinkChronosphere), duration);
+        Invoke(nameof(ShrinkSphere), duration);
     }
 
     private void Update()
@@ -41,10 +40,16 @@ public class SkillObject_Chronosphere : SkillObject_Base
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, expandSpeed * Time.deltaTime);
 
         if (isShrinking && sizeDifference < .1f)
-            Destroy(gameObject);
+            TermiateSphere();
     }
 
-    private void ShrinkChronosphere()
+    private void TermiateSphere()
+    {
+        sphereManager.ClearTargets();
+        Destroy(gameObject);
+    }
+
+    private void ShrinkSphere()
     {
         targetScale = Vector3.zero;
         isShrinking = true;
@@ -57,6 +62,7 @@ public class SkillObject_Chronosphere : SkillObject_Base
         if (enemy == null)
             return;
 
+        sphereManager.AddTarget(enemy);
         enemy.SlowDownEntity(duration, slowDownPercent, true);
     }
 

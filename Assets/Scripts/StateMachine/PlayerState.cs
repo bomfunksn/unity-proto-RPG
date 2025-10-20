@@ -31,9 +31,9 @@ public abstract class PlayerState : EntityState
 
         if(input.Player.UltimateSpell.WasPressedThisFrame() && skillManager.chronosphere.CanUseSkill())
         {
-            if (skillManager.chronosphere.InstantChronosphere())
+            if (skillManager.chronosphere.InstantSphere())
             {
-                skillManager.chronosphere.CreateChronosphere();
+                skillManager.chronosphere.CreateSphere();
             }
             else
             {
