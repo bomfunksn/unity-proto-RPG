@@ -10,11 +10,12 @@ public class Entity_Health : MonoBehaviour, IDamageble
     private Entity_Stats entityStats;
 
     [SerializeField] protected float currentHealth;
-    [SerializeField] protected bool isDead;
     [Header("health regen")]
     [SerializeField] private float regenInterval = 1;
     [SerializeField] private bool canRegenerateHealth = true;
     public float lastDamageTaken { get; private set; }
+    public bool isDead { get; private set; }
+    protected bool canTakeDamage = true;
 
     [Header("On Damage Knockback")]
     [SerializeField] private Vector2 knockbackPower = new Vector2(1.5f, 2.5f);
@@ -44,11 +45,11 @@ public class Entity_Health : MonoBehaviour, IDamageble
             UpdateHealthBar();
             InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
     }
-    
+
 
     public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
     {
-        if (isDead)
+        if (isDead || canTakeDamage == false)
             return false;
 
         if (AttackEvaded())
@@ -60,8 +61,8 @@ public class Entity_Health : MonoBehaviour, IDamageble
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0;
 
-        float mitigation = entityStats != null? entityStats.GetArmorMitigation(armorReduction):0;
-        float resistance = entityStats != null? entityStats.GetElementalResistance(element): 0;
+        float mitigation = entityStats != null ? entityStats.GetArmorMitigation(armorReduction) : 0;
+        float resistance = entityStats != null ? entityStats.GetElementalResistance(element) : 0;
 
         float physicalDamageTaken = damage * (1 - mitigation);
         float elementalDamageTaken = elementalDamage * (1 - resistance);
@@ -73,6 +74,8 @@ public class Entity_Health : MonoBehaviour, IDamageble
 
         return true;
     }
+
+    public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
 
     private bool AttackEvaded()
     {

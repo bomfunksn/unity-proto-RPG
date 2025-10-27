@@ -22,6 +22,8 @@ public class Player_ChronosphereState : PlayerState
         maxDistanceToGoUp = GetAvailableRiseDistance();
 
         player.SetVelocity(0, player.riseSpeed);
+        
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Update()
@@ -48,6 +50,8 @@ public class Player_ChronosphereState : PlayerState
     {
         base.Exit();
         createdChronosphere = false;
+
+        player.health.SetCanTakeDamage(true);
     }
 
     private void Levitate()

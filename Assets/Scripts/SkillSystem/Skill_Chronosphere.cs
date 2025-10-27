@@ -9,12 +9,18 @@ public class Skill_Chronosphere : Skill_Base
     [SerializeField] private float slowDownPercent = .8f;
     [SerializeField] private float slowDownChronosphereDuration = 5;
 
-    [Header("Spell casting upgrade")]
-    [SerializeField] private int spellsToCast = 10;
-    [SerializeField] private float spellCastingChronosphereSlowDown = 1;
-    [SerializeField] private float spellCastingChronosphereDuration = 8;
+    [Header("Shard casting upgrade")]
+    [SerializeField] private int shardsToCast = 10;
+    [SerializeField] private float shardCastingChronosphereSlow = 1;
+    [SerializeField] private float shardCastingChronosphereDuration = 8;
     private float spellCastTimer;
     private float spellsPerSecond;
+
+    [Header("Time echo casting upgrade")]
+    [SerializeField] private int echoToCast = 8;
+    [SerializeField] private float echoCastingChronosphereSlow = 1;
+    [SerializeField] private float echoCastingChronosphereDuration = 6;
+    [SerializeField] private float healthToRestoreWithEcho = .05f;
 
     [Header("Chronosphere detail")]
     public float maxChronosphereSize = 10;
@@ -25,7 +31,7 @@ public class Skill_Chronosphere : Skill_Base
 
     public void CreateSphere()
     {
-        spellsPerSecond = spellsToCast / GetSphereDuration();
+        spellsPerSecond = GetSpellsToCast() / GetSphereDuration();
 
         GameObject chronosphere = Instantiate(chronospherePrefab, transform.position, Quaternion.identity);
         chronosphere.GetComponent<SkillObject_Chronosphere>().SetupSphere(this);
@@ -63,18 +69,13 @@ public class Skill_Chronosphere : Skill_Base
 
     private Transform FindTargetInSphere()
     {
+        trappedTargets.RemoveAll(target => target == null || target.health.isDead);
+
         if (trappedTargets.Count == 0)
             return null;
-        
-        int randomIndex = Random.Range(0, trappedTargets.Count);
-        Transform target = trappedTargets[randomIndex].transform;
 
-        if(target == null)
-        {
-            trappedTargets.RemoveAt(randomIndex);
-            return null;
-        }
-        return target;
+        int randomIndex = Random.Range(0, trappedTargets.Count);
+        return trappedTargets[randomIndex].transform;
     }
 
 
@@ -82,17 +83,35 @@ public class Skill_Chronosphere : Skill_Base
     {
         if (upgradeType == SkillUpgradeType.Chronosphere_SlowingDown)
             return slowDownChronosphereDuration;
-        else
-            return spellCastingChronosphereDuration;
+        else if (upgradeType == SkillUpgradeType.Chronosphere_ShardSpam)
+            return shardCastingChronosphereDuration;
+        else if (upgradeType == SkillUpgradeType.Chronosphere_EchoSpam)
+            return echoCastingChronosphereDuration;
+
+        return 0;
     }
 
     public float GetSlowPercrntage()
     {
         if (upgradeType == SkillUpgradeType.Chronosphere_SlowingDown)
             return slowDownPercent;
-        else
-            return spellCastingChronosphereSlowDown;
+        else if (upgradeType == SkillUpgradeType.Chronosphere_ShardSpam)
+            return shardCastingChronosphereSlow;
+        else if (upgradeType == SkillUpgradeType.Chronosphere_EchoSpam)
+            return echoCastingChronosphereSlow;
+
+        return 0;
     }
+
+    private int GetSpellsToCast()
+    {
+        if (upgradeType == SkillUpgradeType.Chronosphere_ShardSpam)
+            return shardsToCast;
+        else if (upgradeType == SkillUpgradeType.Chronosphere_EchoSpam)
+            return echoToCast;
+
+        return 0;
+    } 
     
 
     public bool InstantSphere()

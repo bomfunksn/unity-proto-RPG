@@ -31,6 +31,7 @@ public class Skill_Base : MonoBehaviour
         upgradeType = upgrade.upgradeType;
         cooldown = upgrade.cooldown;
         damageScaleData = upgrade.damageScaleData;
+        ResetCooldown();
     }
 
     protected bool Unlocked(SkillUpgradeType upgradeToCheck) => upgradeType == upgradeToCheck;
@@ -42,7 +43,7 @@ public class Skill_Base : MonoBehaviour
 
         if (OnCooldown())
         {
-            Debug.Log("dash is on cooldown");
+            Debug.Log("skill is on cooldown");
             return false;
         }
 
@@ -52,5 +53,5 @@ public class Skill_Base : MonoBehaviour
     protected bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
     public float SetSkillOnCooldown() => lastTimeUsed = Time.time;
     public void ReduceCooldownBy(float cooldownReduction) => lastTimeUsed = lastTimeUsed + cooldownReduction;
-    public void ResetCooldown() => lastTimeUsed = Time.time;
+    public void ResetCooldown() => lastTimeUsed = Time.time - cooldown;
 }

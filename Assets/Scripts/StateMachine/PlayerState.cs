@@ -58,7 +58,7 @@ public abstract class PlayerState : EntityState
         if (player.wallDetected)
             return false;
 
-        if (stateMachine.currentState == player.dashState)
+        if (stateMachine.currentState == player.dashState || stateMachine.currentState == player.chronosphereState)
             return false;
 
         return true;
