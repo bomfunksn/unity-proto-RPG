@@ -28,9 +28,7 @@ public class Skill_Dash : Skill_Base
 
     private void CreateClone()
     {
-        Debug.Log("Create mirror");
-
-                //skill manager create cone
+        skillManager.timeEcho.CreateTimeEcho();
     }
     
 }
