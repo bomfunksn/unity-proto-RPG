@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1349
   m_ShowMode: 4
-  m_Title: Project Settings
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 30
+  controlID: 215
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 31
+  controlID: 216
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 32
+  controlID: 153
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 33
+  controlID: 59
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 226
+  controlID: 154
   draggingID: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -566,7 +566,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6c22ffffb892ffff4898ffff0afbffffc6bb000010bc000006bd0000c6e60000
+      m_ExpandedIDs: e8b7ffff6ebeffff0afbffffdcbb00002ebc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 59142
+  m_LastSelectedObjectID: -7558
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1818,9 +1818,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1336.103, y: 412.56665, z: 0}
+    m_Target: {x: 593, y: 302.61456, z: 0}
     speed: 2
-    m_Value: {x: 1336.103, y: 412.56665, z: 0}
+    m_Value: {x: 593, y: 302.61456, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1870,9 +1870,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 206.44771
+    m_Target: 594.0928
     speed: 2
-    m_Value: 206.44771
+    m_Value: 594.0928
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1953,7 +1953,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/SkillSystem
+    - Assets/Scripts/UI
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1963,16 +1963,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/SkillSystem
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Unity\projects\unity-less-RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 171}
-    m_SelectedIDs: a4c80000
-    m_LastClickedID: 51364
-    m_ExpandedIDs: 0000000098c800009ac800009cc80000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 50c90000
+    m_LastClickedID: 51536
+    m_ExpandedIDs: 00000000d8c80000dac80000dcc80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2001,7 +2001,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000098c800009ac800009cc80000
+    m_ExpandedIDs: 00000000d8c80000dac80000dcc80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

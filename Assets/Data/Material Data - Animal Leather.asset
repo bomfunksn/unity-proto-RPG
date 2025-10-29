@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52b4322bf863254ead58bc24738200e, type: 3}
-  m_Name: Material Data - Animal Leather
+  m_Name: Material Data - Animal leather
   m_EditorClassIdentifier: 
   itemName: Animal Leather
   itemIcon: {fileID: -1244868566, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   itemType: 0
+  maxStackSize: 2
