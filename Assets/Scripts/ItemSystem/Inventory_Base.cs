@@ -9,22 +9,35 @@ public class Inventory_Base : MonoBehaviour
     public int maxInventorySize = 10;
     public List<Inventory_Item> itemList = new List<Inventory_Item>();
 
+
+    protected virtual void Awake()
+    {
+
+    }
+    
+
     public bool CanAddItem() => itemList.Count < maxInventorySize;
 
     public void AddItem(Inventory_Item itemToAdd)
     {
         Inventory_Item itemInInventory = FindItem(itemToAdd.itemData);
 
-        if (itemInInventory != null)
+        if (itemInInventory != null  && itemInInventory.CanAddToStack())
             itemInInventory.AddToStack();
         else
             itemList.Add(itemToAdd);
 
-            OnInventoryChange?.Invoke();
+        OnInventoryChange?.Invoke();
+    }
+    
+    public void RemoveItem(Inventory_Item itemToRemove)
+    {
+        itemList.Remove(FindItem(itemToRemove.itemData));
+        OnInventoryChange?.Invoke();
     }
 
     public Inventory_Item FindItem(ItemDataSO itemData)
     {
-        return itemList.Find(item => item.itemData == itemData && item.CanAddToStack());
+        return itemList.Find(item => item.itemData == itemData);
     }
 }

@@ -25391,11 +25391,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 406421745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64411421a0b67a64c8c6303faa9447be, type: 3}
+  m_Script: {fileID: 11500000, guid: 983881678716c2b43a33655fa6425f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxInventorySize: 10
   itemList: []
+  equipList:
+  - slotType: 1
+    equipedItem:
+      itemData: {fileID: 0}
+      stackSize: 0
+  - slotType: 2
+    equipedItem:
+      itemData: {fileID: 0}
+      stackSize: 0
+  - slotType: 3
+    equipedItem:
+      itemData: {fileID: 0}
+      stackSize: 0
 --- !u!1 &415341522
 GameObject:
   m_ObjectHideFlags: 0
@@ -30198,7 +30211,7 @@ GameObject:
   - component: {fileID: 831591445}
   - component: {fileID: 831591444}
   m_Layer: 9
-  m_Name: Object_ItemPickup - Animal Leather
+  m_Name: Object_ItemPickup - Wooden sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30294,7 +30307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1244868566, guid: b5655e30f8eedfe449d3268458428856, type: 3}
+  m_Sprite: {fileID: 67547688, guid: b5655e30f8eedfe449d3268458428856, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -30317,7 +30330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1c3526798947f4788e91488d00e2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 182841ef6fbe0134997f2f733a056cee, type: 2}
+  itemData: {fileID: 11400000, guid: 05cf3cc3289c9714ea41c221e988efab, type: 2}
 --- !u!4 &831591447
 Transform:
   m_ObjectHideFlags: 0
