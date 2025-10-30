@@ -6,24 +6,25 @@ using UnityEngine.UI;
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     public Inventory_Item itemInSlot { get; private set; }
-    private Inventory_Player inventory;
+    protected Inventory_Player inventory;
 
     [Header("UI Slot Setup")]
     [SerializeField] private Image itemIcon;
     [SerializeField] private TextMeshProUGUI itemStackSize;
+    [SerializeField] private Sprite defaultIcon;
 
-    private void Awake()
+    protected void Awake()
     {
         inventory = FindFirstObjectByType<Inventory_Player>();
     }
 
 
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         if (itemInSlot == null)
             return;
 
-        inventory.TryEquipItem(itemInSlot);
+            inventory.TryEquipItem(itemInSlot);
     }
 
     public void UpdateSlot(Inventory_Item item)
@@ -34,6 +35,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         {
             itemStackSize.text = "";
             itemIcon.color = new Color(1, 1, 1, 0.15f);
+            itemIcon.sprite = defaultIcon;
             return;
         }
 
