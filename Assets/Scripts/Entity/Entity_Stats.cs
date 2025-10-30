@@ -146,7 +146,7 @@ public class Entity_Stats : MonoBehaviour
             case StatType.MaxHealth: return resources.maxHealth;
             case StatType.HealthRegen: return resources.healthRegen;
 
-            case StatType.Strenghth: return major.strength;
+            case StatType.Strength: return major.strength;
             case StatType.Agility: return major.agility;
             case StatType.Intellegence: return major.intelligence;
             case StatType.Vitality: return major.vitality;

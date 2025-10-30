@@ -4,7 +4,7 @@ public enum StatType
 {
     MaxHealth,
     HealthRegen,
-    Strenghth,
+    Strength,
     Agility,
     Intellegence,
     Vitality,
