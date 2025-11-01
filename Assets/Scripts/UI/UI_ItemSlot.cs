@@ -32,6 +32,8 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
         if (itemInSlot == null)
             ui.itemTooltip.ShowToolTip(false, null);
+        else
+            ui.itemTooltip.ShowToolTip(true, rect, itemInSlot);
     }
 
     public void UpdateSlot(Inventory_Item item)
